@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Transformación de Rotación</title>
+	<title>Transformación punto de origen</title>
 	<style type="text/css">
 
 		body{
@@ -22,27 +22,32 @@
 		/* cuadrado:hover esto hace transiciones raras, lo recomendable es que se haga en un container padre */
 
 		.container:hover .cuadrado{
+			/*transform-origin: 50% 50% por defecto*/
 			transform: rotateX(45deg);
+			transform-origin: top;
 		}
 
 		.container:hover .cuadrado.a{
 			transform: rotateY(45deg);
+			transform-origin: 100% 50%;
 		}
 
 		.container:hover .cuadrado.b{
 			transform: rotateZ(45deg);
+			transform-origin: left;
 		}
 
 		.container:hover .cuadrado.c{
 			transform: rotate3d(2,2,2,45deg);
+			transform-origin: right;
 		}
 
 		.cuadrado{
 			width: 200px;
 			height: 200px;
-			background: #45B39D;
+			background: #34495E ;
 			margin: 20px;
-			transition: .3s;
+			transition: .6s;
 			text-align: center;
 			display: flex;
 			align-items: center;
@@ -54,36 +59,26 @@
 </head>
 <body>
 	<div class="container">		
-		<div class="cuadrado">RotateX()</div>		
+		<div class="cuadrado">Punto-origen</div>		
 	</div>
 
 	<div class="container">
-		<div class="cuadrado a">RotateY()</div>
+		<div class="cuadrado a">Punto-origen</div>
 	</div>
 
 	<div class="container">
-		<div class="cuadrado b">Rotate() / RotateZ()</div>
+		<div class="cuadrado b">Punto-origen</div>
 	</div>
 
 	<div class="container">
-		<div class="cuadrado c">Rotate3D()</div>
+		<div class="cuadrado c">Punto-origen</div>
 	</div>
 </body>
 </html>
 
-
-<!--  Transformaciones de Rotación
-
-Sintaxis de la propiedad rotacion:
-rotate() / rotateZ() - rotar el elemento en un plano 2D. Por defecto dirección de las manecillas del reloj.
-	transform: rotate(90deg);
-
-rotateX() - rotar el elemento en un plano 3D, tirando la parte superior (top) del elemento hacia el fondo por defecto.
-	transform: rotateX(90deg);
-
-rotateY() - rotar el elemento en un plano 3D, tirando la parte izquierda (left) del elemento hacia el fondo por defecto.
-	transform: rotateY(90deg);
-
-rotate3d() - rota de manera totalmente 3D el elemento, uniendo los 3 valores anteriores. Define con un 1 los valores a utilizar y como 4to parámetro la medida en grados que usaran (x, y, z, deg).
-	transform: rotate3d(1,1,1,90deg);
+<!-- Punto de transformación
+PUNTO DE TRANSFORMACION:
+La propiedad transform-origin permite cambiar la posición de los elementos transformados.
+Las transformaciones 2D pueden cambiar los ejes x & y de un elemento. Las transformaciones 3D también pueden cambiar el eje z de un elemento.
 -->
+
