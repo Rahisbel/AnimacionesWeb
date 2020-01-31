@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Traslación y perspectiva</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+			/*border: 1px solid gray;*/
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 10px;
+		}
+
+		/* cuadrado:hover esto hace transiciones raras, lo recomendable es que se haga en un container padre */
+
+		.container:hover .cuadrado{
+			transform: scale(0);
+		}
+
+		.container:hover .cuadrado.a{
+			transform: scale(0,1);
+		}
+
+		.container:hover .cuadrado.b{
+			transform: scale(1,0)
+		}
+
+		.container:hover .cuadrado.c{
+			transform: scale(-1,0);
+		}
+
+		.container:hover .cuadrado.d{
+			transform: scale(0,-1);
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #F39C12;
+			margin: 20px;
+			transition: .3s;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">		
+		<div class="cuadrado">scale(0)</div>		
+	</div>
+
+	<div class="container">
+		<div class="cuadrado a">scale(0,1)</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado b">scale(1,0)</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado c">scale(-1,0)</div>
+	</div>
+
+	<div class="container">		
+		<div class="cuadrado d ">scale(0,-1)</div>		
+	</div>
+</body>
+</html>
+
+
+<!--  Transformaciones de escala
+ESCALAR:
+
+Para ESCALAR un elemento utilizamos el valor scale(x, y), y dentro de sus paréntesis definimos la medida o medidas en porcentaje para sus ejes por separados que sera escalado el elemento. Dichos valores se definen mediante un numero en el que 0 es 0%, 1 es 100% o tamaño normal y así en adelante.
+
+transform: scale(2); = transform: scale(2, 2);
+
+.selector {
+	transform: scale(2);
+} 
+-->
