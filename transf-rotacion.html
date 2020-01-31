@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transformación de Rotación</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 20px;
+		}
+
+		/* cuadrado:hover esto hace transiciones raras, lo recomendable es que se haga en un container padre */
+
+		.container:hover .cuadrado{
+			transform: rotateX(45deg);
+		}
+
+		.container:hover .cuadrado.a{
+			transform: rotateY(45deg)
+		}
+
+		.container:hover .cuadrado.b{
+			transform: rotateZ(45deg)
+		}
+
+		.container:hover .cuadrado.c{
+			transform: rotate3d(2,2,2,45deg);
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #45B39D;
+			margin: 20px;
+			transition: .3s;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">		
+		<div class="cuadrado">RotateX()</div>		
+	</div>
+
+	<div class="container">
+		<div class="cuadrado a">RotateY()</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado b">Rotate() / RotateZ()</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado c">Rotate3D()</div>
+	</div>
+</body>
+</html>
+
+
+<!--  Transformaciones de Rotación
+
+Sintaxis de la propiedad rotacion:
+rotate() / rotateZ() - rotar el elemento en un plano 2D. Por defecto dirección de las manecillas del reloj.
+	transform: rotate(90deg);
+
+rotateX() - rotar el elemento en un plano 3D, tirando la parte superior (top) del elemento hacia el fondo por defecto.
+	transform: rotateX(90deg);
+
+rotateY() - rotar el elemento en un plano 3D, tirando la parte izquierda (left) del elemento hacia el fondo por defecto.
+	transform: rotateY(90deg);
+
+rotate3d() - rota de manera totalmente 3D el elemento, uniendo los 3 valores anteriores. Define con un 1 los valores a utilizar y como 4to parámetro la medida en grados que usaran (x, y, z, deg).
+	transform: rotate3d(1,1,1,90deg);
+-->
