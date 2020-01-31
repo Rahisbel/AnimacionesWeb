@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Traslación y perspectiva</title>
+	<style type="text/css">
+
+		body{
+			
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+			perspective: 250px;
+			perspective-origin: bottom;
+			/*border: 1px solid gray;*/
+		}
+
+		.mitad{
+			/*border: 1px solid gray;*/
+			display: flex;
+			height: 50vh;
+			align-items: center;
+			justify-content: center;
+
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 20px;
+		}
+
+		/* cuadrado:hover esto hace transiciones raras, lo recomendable es que se haga en un container padre */
+
+		.container:hover .cuadrado{
+			transform: translateX(50px);
+		}
+
+		.container:hover .cuadrado.a{
+			transform: translateY(50px);
+		}
+
+		.container:hover .cuadrado.b{
+			transform: translate(50px,50px);
+		}
+
+		.container:hover .cuadrado.c{
+			transform: translate3d(10px,-30px,15px);
+		}
+
+		.container:hover .cuadrado.d{
+			transform: translateZ(50px);
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #E74C3C;
+			margin: 20px;
+			transition: .3s;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="mitad">
+		<div class="container">		
+			<div class="cuadrado">TraslateX()</div>		
+		</div>
+
+		<div class="container">
+			<div class="cuadrado a">TraslateY()</div>
+		</div>
+
+		<div class="container">
+			<div class="cuadrado b">Traslate(x,y)</div>
+		</div>
+
+		<div class="container">
+			<div class="cuadrado c">Traslate3D(x,y,z)</div>
+		</div>
+	</div>
+
+	<div class="mitad">
+		<div class="container">		
+			<div class="cuadrado d ">perspective</div>		
+		</div>
+
+		<div class="container">
+			<div class="cuadrado d">perspective</div>
+		</div>
+
+		<div class="container">
+			<div class="cuadrado d">perspective</div>
+		</div>
+
+		<div class="container">
+			<div class="cuadrado d">perspective</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<!--  Transformaciones de traslación y perspectiva
+
+TRASLADAR:
+Para TRASLADAR o modificar la posición de un elemento podemos utilizar diferentes valores los siguientes valores, los cuales, llevan dentro de paréntesis la medida positiva o negativa que se aplicara:
+
+.selector {
+	transform: traslate(100px, 200px);  [mueve el elemento a lo largo de su eje X & Y.]
+}
+
+SINTAXIS:
+traslate(x, y) - mueve el elemento a lo largo de su eje X & Y.  transform: traslate(100px, 200px);
+
+traslateX() - mueve el elemento únicamente a lo largo de su eje X. transform: traslateX(100px);
+
+traslateY() - mueve el elemento únicamente a lo largo de su eje Y. transform: traslateY(200px);
+
+** traslateZ()**- mueve el elemento en su profundidad (3D), el cual se acerca por defecto. Requiere que se defina la propiedad ‘perspective’ en el elemento padre de referencia.
+
+Nota: La propiedad perspective puede cambiar su punto eje de referencia, a traves del atributo:
+Perspective-origin: [top, right, left, bottom]
+
+-->
