@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Traslación y perspectiva</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+			/*border: 1px solid gray;*/
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 10px;
+		}
+
+		/* cuadrado:hover esto hace transiciones raras, lo recomendable es que se haga en un container padre */
+
+		.container:hover .cuadrado{
+			transform: skew(10deg,10deg);
+		}
+
+		.container:hover .cuadrado.a{
+			transform: skew(-10deg,-10deg);
+		}
+
+		.container:hover .cuadrado.b{
+			transform: skew(10deg,-30deg);
+		}
+
+		.container:hover .cuadrado.c{
+			transform: skew(-10deg,30deg);
+		}
+
+		.container:hover .cuadrado.d{
+			transform: skew(45deg,45deg);
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #8E44AD ;
+			margin: 20px;
+			transition: .3s;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">		
+		<div class="cuadrado">skew(10deg,10deg);</div>		
+	</div>
+
+	<div class="container">
+		<div class="cuadrado a">skew(-10deg,-10deg);</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado b">skew(10deg,-30deg);</div>
+	</div>
+
+	<div class="container">
+		<div class="cuadrado c">sskew(-10deg,30deg);</div>
+	</div>
+
+	<div class="container">		
+		<div class="cuadrado d ">skew(45deg,45deg);</div>		
+	</div>
+</body>
+</html>
+
+<!-- SESGAR:
+
+Para SESGAR O INCLINAR un elemento utilizamos el valor skew(x, y), y dentro de sus paréntesis definimos la medida en grados positivos o negativos que se aplicaran para los ejes X & Y.
+
+.selector {
+	transform: skew(45deg, 45deg);
+}
+
+-->
