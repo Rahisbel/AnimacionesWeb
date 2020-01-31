@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Interacciones CSS</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			height: 100vh;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.pelota{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			transition:1s;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color:white;
+		}
+
+		.pelota.a{
+			background: black;
+			left: 0;
+		}
+
+		.pelota.b{
+			background: #45B39D;
+			right: 0;
+		}
+
+		.canasta{
+			border: 1px solid gray;
+			position: relative;
+			height: 100px;
+			width: 100%;
+			transform: rotate(5deg) skew(10deg) translate(100px) scale(1.5); 
+		}
+		.canasta:hover .pelota.a{
+			left:calc(50% - 100px);
+		}
+
+		.canasta:hover .pelota.b{
+			right:calc(50% - 100px);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="canasta">
+		<div class="pelota a">¡Hola</div>
+		<div class="pelota b">Mundo!</div>
+	</div>
+</body>
+</html>
+
+
+<!-- Sintaxis de Transformaciones
+
+Transform:
+Define una o varias transformaciones en un selector, las cuales, pueden ser su rotación en grados, el sesgado / inclinación en grados, la posición en X & Y y la escala / tamaño en base a porcentaje.
+
+Rotar:
+Para ROTAR un elemento podemos utilizar diferentes valores, los cuales, llevan dentro de paréntesis la medida en grados (0deg) positivos o negativos que se aplicaran:
+
+.selector {
+	transform: rotate(90deg);
+
+}
+
+SESGAR:
+Para SESGAR O INCLINAR un elemento utilizamos el valor skew(x, y), y dentro de sus paréntesis definimos la medida en grados positivos o negativos que se aplicaran para los ejes X & Y.
+
+.selector {
+	transform: skew(45deg, 45deg);
+}
+
+TRASLADAR:
+Para TRASLADAR o modificar la posición de un elemento podemos utilizar diferentes valores los siguientes valores, los cuales, llevan dentro de paréntesis la medida positiva o negativa que se aplicara:
+
+.selector {
+	transform: traslate(100px, 200px);  [mueve el elemento a lo largo de su eje X & Y.]
+	
+}
+
+ESCALAR:
+
+Para ESCALAR un elemento utilizamos el valor scale(x, y), y dentro de sus paréntesis definimos la medida o medidas en porcentaje para sus ejes por separados que sera escalado el elemento. Dichos valores se definen mediante un numero en el que 0 es 0%, 1 es 100% o tamaño normal y así en adelante.
+
+transform: scale(2); = transform: scale(2, 2);
+
+.selector {
+	transform: scale(2); 
+}
+-->
+
+
