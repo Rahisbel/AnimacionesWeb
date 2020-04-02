@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animaciones Múltiples</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 20px;
+			width: 100%;
+		}
+
+		.container:hover .cuadrado{
+			animation-play-state: paused;
+	
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #E74C3C;
+			margin: 20px;
+			text-align: center;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			border-radius: 50%;
+
+			animation-delay: 1s; /* el tiempo que dura en empezar a animar */
+			animation-iteration-count: infinite,20; /* la cantidad de veces que quiero que haga la animación */	
+			animation-direction: alternate;
+			animation-play-state: running;/* Estado de la animación, running es su valor por defecto */
+			position: relative; /* recordar que al querer mover algo siempre se debe definir una posición inicial */
+			animation-timing-function: linear,ease-in-out; /* primera animación, segunda animación */
+			transition: 3s;
+			will-change: opacity,transform;
+
+			/* para definir la animación se utiliza la palabra @keyframes, seguido de su nombre */
+		}
+
+		.cuadrado:hover{
+			opacity: 0;
+			transform: scale(1.1);
+		}
+
+
+		@keyframes cuadrado{ 
+			0%{
+				/* opacity:0; */			
+				left:0;
+			}
+
+			100%{
+				/* opacity:100; */		
+				left: calc(100% - 240px); /* se le resta el ancho y los márgenes */
+				
+			}
+		}
+
+		@keyframes rebote{
+			from{ /* es lo mismo que poner 0% */
+				transform: translateY(0)scale(1,.8);
+
+			}
+			to{ /* es lo mismo que poner 100% */
+				transform: translateY(100px);
+
+			}
+		}
+
+		@keyframes escalera{
+			from{
+				transform: translateY(0);
+			}
+			to{
+				transform: translateY(500px);
+			}
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">		
+		<div class="cuadrado" id="cuadrado">
+		Hola Mundo
+		</div>		
+	</div>
+	<script > 
+		const $cuadrado = document.getElementById('cuadrado');
+		/*$cuadrado.addEventListener('nombre del evento', ' que hago cuando escucho el evento')*/
+		$cuadrado.addEventListener('animationend', (event)=>{
+			/*console.log(event);*/
+			if(event.animationName === 'rebote'){
+				$cuadrado.style.animationName = 'cuadrado escalera';
+				$cuadrado.style.animationDuration = '3s';
+			}
+		});
+	</script>
+</body>
+</html>
