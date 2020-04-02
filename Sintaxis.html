@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sintaxis</title>
+	<style type="text/css">
+
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color:white;
+			font-family: arial;
+		}
+
+		.container{
+			border: 1px solid gray;
+			margin: 20px;
+			width: 100%;
+		}
+
+		.container:hover .cuadrado{
+			animation-play-state: paused;
+	
+		}
+
+		.cuadrado{
+			width: 200px;
+			height: 200px;
+			background: #34495E ;
+			margin: 20px;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			animation-name: cuadrado; /* el nombre de la animacion */
+			animation-duration: 2s;
+			animation-delay: 1s; /* el tiempo que dura en empezar a animar */
+			animation-iteration-count: infinite; /* la cantidad de veces que quiero que haga la animación */	
+			animation-direction: alternate;
+			/*animation-fill-mode: forwards; con forwards toma el valor que tiene la ultima parte de la animación, en este caso su opacidad se vuelve 0 */
+			animation-play-state: running;/* Estado de la animación, running es su valor por defecto */
+			position: relative; /* recordar que al querer mover algo siempre se debe definir una posición inicial */
+			
+			/*animation-timing-function: steps(5); los 60 es por la duración de la animación */
+
+			animation-timing-function: cubic-bezier(.75,-0.52,.33,1.39);
+
+
+			anima
+			
+			/* para definir la animación se utiliza la palabra @keyframes, seguido de su nombre */
+		}
+
+
+		@keyframes cuadrado{ 
+			0%{
+				/* opacity:0; */			
+				left:0;
+			}
+
+			100%{
+				/* opacity:100; */		
+				left: calc(100% - 240px); /* se le resta el ancho y los márgenes */
+				
+			}
+		}
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">		
+		<div class="cuadrado">Hola Mundo</div>		
+	</div>
+
+
+</body>
+</html>
+
+<!-- Aceleración y curva de bezier: da aceleración y movimientos curvos a los elementos web
+			
+	animation-timing-function:ease;  valor por defecto 
+	animation-timing-function:ease-in; genera una aceleración suave al inicio 
+	animation-timing-function: ease-out; es lo contrario a ease-in 	
+	animation-timing-function: ease-in-out; lento al inicio y al final, efecto del péndulo 	
+	animation-timing-function: linear; su velocidad permanece constante 
+			
+	también se puede animar por pasos: steps() 
+	con cubic-bezier podemos configurar el funcionamiento de la aceleración, recibe 4 parametros, para no enrollarnos con esos 4 parametros se recomienda
+	visitar cubic-bezier.com allí encontraremos diversos ejemplos-->
